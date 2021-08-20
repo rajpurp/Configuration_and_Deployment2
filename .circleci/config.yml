@@ -7,14 +7,14 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["dc:b4:22:71:c1:a9:ee:d3:4c:0a:9b:90:17:a4:c6:7a"] # You can get this ID in the section where you registered the SSH Key
+          fingerprints: ["dc:b4:22:71:c1:a9:ee:d3:4c:0a:9b:90:17:a4:c6:7a"] 
       - run:
           name: Install dependencies
           command: |
             apk add --update ansible # install the dependencies needed for your playbook
       - run:
           name: Configure server
-#          working_directory: ./.circleci
+          working_directory: ./.circleci
           command: |
             ansible-playbook -i inventory.txt main.yml
 
